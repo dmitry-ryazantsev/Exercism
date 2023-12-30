@@ -1,11 +1,10 @@
-using NUnit.Framework;
-
 [TestFixture]
 public class AssemblyLineTests
 {
     [Test]
-    public void SuccessRateTest()
+    public void SuccessRate_ReturnsExpectedValues()
     {
+        Assert.That(AssemblyLine.SuccessRate(-2), Is.EqualTo(0));
         Assert.That(AssemblyLine.SuccessRate(0), Is.EqualTo(0));
         Assert.That(AssemblyLine.SuccessRate(4), Is.EqualTo(1));
         Assert.That(AssemblyLine.SuccessRate(8), Is.EqualTo(0.9));
@@ -15,17 +14,19 @@ public class AssemblyLineTests
     }
 
     [Test]
-    public void ProductionRatePerHourTest()
+    public void ProductionRatePerHour_ReturnsExpectedValues()
     {
         Assert.That(AssemblyLine.ProductionRatePerHour(0), Is.EqualTo(0));
         Assert.That(AssemblyLine.ProductionRatePerHour(1), Is.EqualTo(221));
         Assert.That(AssemblyLine.ProductionRatePerHour(10), Is.EqualTo(1701.7));
+        Assert.That(AssemblyLine.ProductionRatePerHour(11), Is.EqualTo(0));
     }
 
     [Test]
-    public void WorkingItemsPerMinuteTest()
+    public void WorkingItemsPerMinute_ReturnsExpectedValues()
     {
         Assert.That(AssemblyLine.WorkingItemsPerMinute(0), Is.EqualTo(0));
         Assert.That(AssemblyLine.WorkingItemsPerMinute(5), Is.EqualTo(16));
+        Assert.That(AssemblyLine.WorkingItemsPerMinute(11), Is.EqualTo(0));
     }
 }
