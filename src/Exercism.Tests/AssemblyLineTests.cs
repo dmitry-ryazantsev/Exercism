@@ -1,32 +1,32 @@
 [TestFixture]
 public class AssemblyLineTests
 {
-    [Test]
-    public void SuccessRate_ReturnsExpectedValues()
+    // parametrised tests
+    [TestCase(-2, 0)]
+    [TestCase(4, 1)]
+    [TestCase(8, 0.9)]
+    [TestCase(9, 0.8)]
+    [TestCase(10, 0.77)]
+    [TestCase(11, 0)]
+    public void SuccessRate_ReturnsExpectedValue(int speed, double successRate)
     {
-        Assert.That(AssemblyLine.SuccessRate(-2), Is.EqualTo(0));
-        Assert.That(AssemblyLine.SuccessRate(0), Is.EqualTo(0));
-        Assert.That(AssemblyLine.SuccessRate(4), Is.EqualTo(1));
-        Assert.That(AssemblyLine.SuccessRate(8), Is.EqualTo(0.9));
-        Assert.That(AssemblyLine.SuccessRate(9), Is.EqualTo(0.8));
-        Assert.That(AssemblyLine.SuccessRate(10), Is.EqualTo(0.77));
-        Assert.That(AssemblyLine.SuccessRate(11), Is.EqualTo(0));
+        Assert.That(AssemblyLine.SuccessRate(speed), Is.EqualTo(successRate));
     }
 
-    [Test]
-    public void ProductionRatePerHour_ReturnsExpectedValues()
+    [TestCase(0, 0)]
+    [TestCase(1, 221)]
+    [TestCase(10, 1701.7)]
+    [TestCase(11, 0)]
+    public void ProductionRatePerHour_ReturnsExpectedValue(int speed, double productionRatePerHour)
     {
-        Assert.That(AssemblyLine.ProductionRatePerHour(0), Is.EqualTo(0));
-        Assert.That(AssemblyLine.ProductionRatePerHour(1), Is.EqualTo(221));
-        Assert.That(AssemblyLine.ProductionRatePerHour(10), Is.EqualTo(1701.7));
-        Assert.That(AssemblyLine.ProductionRatePerHour(11), Is.EqualTo(0));
+        Assert.That(AssemblyLine.ProductionRatePerHour(speed), Is.EqualTo(productionRatePerHour));
     }
 
-    [Test]
-    public void WorkingItemsPerMinute_ReturnsExpectedValues()
+    [TestCase(0, 0)]
+    [TestCase(5, 16)]
+    [TestCase(11, 0)]
+    public void WorkingItemsPerMinute_ReturnsExpectedValue(int speed, int workingItemsPerMinute)
     {
-        Assert.That(AssemblyLine.WorkingItemsPerMinute(0), Is.EqualTo(0));
-        Assert.That(AssemblyLine.WorkingItemsPerMinute(5), Is.EqualTo(16));
-        Assert.That(AssemblyLine.WorkingItemsPerMinute(11), Is.EqualTo(0));
+        Assert.That(AssemblyLine.WorkingItemsPerMinute(speed), Is.EqualTo(workingItemsPerMinute));
     }
 }
