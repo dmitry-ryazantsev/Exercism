@@ -1,5 +1,5 @@
 [TestFixture]
-public class RollTheDieTests
+public class PlayerTests
 {
     [Test]
     public void RollDie_InRangeOf1To18()
