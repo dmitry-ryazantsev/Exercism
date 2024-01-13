@@ -1,3 +1,5 @@
+namespace ElonsToys;
+
 [TestFixture]
 public class RemoteControlCarTests
 {

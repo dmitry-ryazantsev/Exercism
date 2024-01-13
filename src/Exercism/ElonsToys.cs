@@ -1,3 +1,5 @@
+namespace ElonsToys;
+
 public class RemoteControlCar
 {
     private int _distanceDriven = 0;
